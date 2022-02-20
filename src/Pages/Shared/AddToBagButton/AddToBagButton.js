@@ -23,22 +23,22 @@ const AddToBagButton = ({ product }) => {
     }, [value, dispatch])
 
 
-    useEffect(() => {
-        const cart = getStoredCart('cart');
-        console.log(cart);
+    // useEffect(() => {
+    //     const cart = getStoredCart('cart');
+    //     console.log(cart);
 
-        setValue(cart[product?.product_id])
+    //     setValue(cart[product?.product_id])
 
 
 
-        if (cart[product?.product_id]) {
+    //     if (cart[product?.product_id]) {
 
-            setChecked(true)
-        }
-        else {
-            setChecked(false)
-        }
-    }, [value])
+    //         setChecked(true)
+    //     }
+    //     else {
+    //         setChecked(false)
+    //     }
+    // }, [value])
 
 
 

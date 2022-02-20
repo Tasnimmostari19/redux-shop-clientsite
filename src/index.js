@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 import { configureStore } from '@reduxjs/toolkit';
 import productsReducer, { fetchProducts } from './redux/slices/productSlice';
-import cartReducer from './redux/slices/cartSlice';
+import cartReducer, { getTotals } from './redux/slices/cartSlice';
 
 const store = configureStore({
   reducer: {
@@ -15,7 +15,7 @@ const store = configureStore({
     cart: cartReducer
   }
 });
-// store.dispatch(fetchProducts());
+store.dispatch(getTotals());
 
 
 ReactDOM.render(

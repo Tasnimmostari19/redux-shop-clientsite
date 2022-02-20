@@ -1,32 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../../redux/slices/productSlice';
+import React from 'react';
 
-import Product from '../Product/Product';
+import Products from '../Products/Products';
 
 const Home = () => {
-    const dispatch = useDispatch()
 
-
-
-    useEffect(() => {
-        dispatch(fetchProducts());
-    }, [])
-
-
-
-    const products = useSelector((state) => state?.products?.discover.products)
     // console.log(products);
 
     return (
         <div>
-            <h2>Products</h2>
-            {
-                products?.map(product => <Product
-                    product={product}
-                ></Product>)
-            }
-
+            <Products></Products>
         </div>
     );
 };

@@ -3,9 +3,10 @@ import { styled } from '@mui/system';
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../../../redux/slices/cartSlice';
+import { addToCart, decreaseCart, getTotals, removeFromCart } from '../../../redux/slices/cartSlice';
+import { getStoredCart } from '../utilities/fakeDb';
 
-// import { addToDb, getStoredCart, subtractFromDb } from '../../utilities/fakeDb';
+
 
 // let savedItem;
 
@@ -17,24 +18,27 @@ const AddToBagButton = ({ product }) => {
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getTotals());
+    }, [value, dispatch])
+
+
+    useEffect(() => {
+        const cart = getStoredCart('cart');
+        console.log(cart);
+
+        setValue(cart[product?.product_id])
 
 
 
-    // useEffect(() => {
-    //     const cart = getStoredCart('shopping_cart');
+        if (cart[product?.product_id]) {
 
-    //     setValue(cart[id])
-
-
-
-    //     if (cart[id]) {
-
-    //         setChecked(true)
-    //     }
-    //     else {
-    //         setChecked(false)
-    //     }
-    // }, [value])
+            setChecked(true)
+        }
+        else {
+            setChecked(false)
+        }
+    }, [value])
 
 
 
@@ -57,7 +61,7 @@ const AddToBagButton = ({ product }) => {
     }
 
     const subtract = (product) => {
-        dispatch(removeFromCart(product.product_id))
+        dispatch(decreaseCart(product))
         // subtractFromDb(id);
         setValue(value - 1)
     }

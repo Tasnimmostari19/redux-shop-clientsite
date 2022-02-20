@@ -59,10 +59,10 @@ const AddToBagButton = ({ id }) => {
 
     const ColorButton = styled(Button)(({ theme }) => ({
         '&:active': {
-            backgroundColor: 'blue',
+            backgroundColor: '#1b5e20',
         },
         '&:hover': {
-            backgroundColor: 'blue',
+            backgroundColor: '#1b5e20',
             color: 'white'
         },
 
@@ -77,17 +77,17 @@ const AddToBagButton = ({ id }) => {
             {checked ? (
                 <ColorButton
                     size="small"
-                    sx={{ backgroundColor: 'blue', textTransform: 'none', border: '1px solid blue', fontSize: '14px', fontWeight: 'normal', height: '32px', width: '102px', color: '#FFFFFF' }}
+                    sx={{ backgroundColor: '#1b5e20', textTransform: 'none', border: '1px solid #1b5e20', fontSize: '14px', fontWeight: 'normal', height: '32px', width: '102px', color: '#FFFFFF' }}
                 >
-                    <button onClick={() => subtract(id)} style={{ background: 'blue', border: 'none', color: '#FFFFFF', marginRight: '20px', fontSize: '14px' }}>-</button>
+                    <button onClick={() => subtract(id)} style={{ background: '#1b5e20', border: 'none', color: '#FFFFFF', marginRight: '20px', fontSize: '14px' }}>-</button>
                     {value}
-                    <button onClick={() => add(id)} style={{ background: 'blue', border: 'none', color: '#FFFFFF', marginLeft: '20px', fontSize: '14px' }}>+</button>
+                    <button onClick={() => add(id)} style={{ background: '#1b5e20', border: 'none', color: '#FFFFFF', marginLeft: '20px', fontSize: '14px' }}>+</button>
                 </ColorButton>
             ) : (
                 <ColorButton
                     size="small"
                     onClick={() => addToBagButton(id)}
-                    sx={{ color: 'blue', textTransform: 'none', border: '1px solid blue', fontSize: '14px', fontWeight: 'normal', height: '32px', width: '102px' }}
+                    sx={{ color: '#1b5e20', textTransform: 'none', border: '1px solid #1b5e20', fontSize: '14px', fontWeight: 'normal', height: '32px', width: '102px' }}
                 >
                     Add to bag
                 </ColorButton>

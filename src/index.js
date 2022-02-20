@@ -4,7 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { store } from './redux/store'
+
+import { configureStore } from '@reduxjs/toolkit';
+import productsReducer, { fetchProducts } from './redux/slices/productSlice';
+import cartReducer from './redux/slices/cartSlice';
+
+const store = configureStore({
+  reducer: {
+    products: productsReducer,
+    cart: cartReducer
+  }
+});
+// store.dispatch(fetchProducts());
+
 
 ReactDOM.render(
   <React.StrictMode>

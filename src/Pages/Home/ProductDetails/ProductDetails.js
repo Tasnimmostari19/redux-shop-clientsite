@@ -8,6 +8,7 @@ import BuyNowButton from '../../Shared/BuyNowButton/BuyNowButton';
 const ProductDetails = ({ id }) => {
 
     const [details, setDetails] = useState({});
+    console.log(details);
 
     useEffect(() => {
         fetch(`https://digidokan.southeastasia.cloudapp.azure.com/products/getSingleProduct/${id}`)
@@ -49,7 +50,7 @@ const ProductDetails = ({ id }) => {
                 <Box sx={{ display: 'flex', alignItems: 'flex-start', marginLeft: '18px', marginTop: '0px', paddingTop: '20px' }}>
                     <Box>
                         <AddToBagButton
-                            id={details.product?.product_id}
+                            id={details?.product?.product_id}
 
                         ></AddToBagButton>
                     </Box>

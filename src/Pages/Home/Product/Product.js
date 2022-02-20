@@ -9,8 +9,9 @@ import AddToBagButton from '../../Shared/AddToBagButton/AddToBagButton';
 
 const Product = ({ product }) => {
     const { product_name, product_id, product_description, unit_selling_price } = product
+    // console.log(product);
 
-    const images = useSelector((state) => state.product.discover.images)
+    const images = useSelector((state) => state?.products?.discover.images)
 
 
     const img = images?.find(image => image?.product_id == product_id)
@@ -97,7 +98,7 @@ const Product = ({ product }) => {
                 <Box sx={{ display: 'flex', alignItems: 'flex-start', marginLeft: '18px', marginTop: '0px', paddingTop: '20px' }}>
                     <Box>
                         <AddToBagButton
-                            id={product_id}
+                            product={product}
 
                         ></AddToBagButton>
                     </Box>

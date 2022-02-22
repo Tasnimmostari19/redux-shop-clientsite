@@ -8,13 +8,13 @@ import ProductDetails from '../ProductDetails/ProductDetails';
 import AddToBagButton from '../../Shared/AddToBagButton/AddToBagButton';
 
 const Product = ({ product }) => {
-    const { product_name, product_id, product_description, unit_selling_price } = product
+    const { name, _id, description, price, img } = product
     // console.log(product);
 
-    const images = useSelector((state) => state?.products?.discover.images)
+    // const images = useSelector((state) => state?.products?.discover.images)
 
 
-    const img = images?.find(image => image?.product_id == product_id)
+    // const img = images?.find(image => image?.product_id == product_id)
     // console.log(img?.image_url);
 
 
@@ -51,7 +51,7 @@ const Product = ({ product }) => {
             </Box>
             <Box sx={{ marginTop: '60px', marginLeft: '40px', marginRight: '40px' }}>
                 <ProductDetails
-                    id={product_id}
+                    id={_id}
                 ></ProductDetails>
 
             </Box>
@@ -76,8 +76,8 @@ const Product = ({ product }) => {
                 <CardMedia
                     component="img"
                     width='25%'
-                    image={img?.image_url}
-                    alt={product_description}
+                    image={img}
+                    alt={description}
                     sx={{ width: '25%' }}
                     onClick={toggleDrawer(true)}
 
@@ -85,13 +85,13 @@ const Product = ({ product }) => {
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: '8px', paddingTop: '20px', marginBottom: '6px' }} onClick={toggleDrawer(true)}>
                     <Typography component="div" sx={{ fontSize: '16px', fontWeight: 500, color: '#021F3F' }} ellipsizeMode='tail' numberOfLines={1}>
-                        {product_name}
+                        {name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         pcs
                     </Typography>
                     <Typography variant="body2" color="#021F3F">
-                        {unit_selling_price}/-
+                        {price}/-
                     </Typography>
                 </Box>
 
@@ -114,7 +114,7 @@ const Product = ({ product }) => {
                 open={state}
             // onClose={toggleDrawer(false)}
             >
-                {list(product_id)}
+                {list(_id)}
             </Drawer>
 
         </Fragment>

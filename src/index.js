@@ -15,6 +15,7 @@ const store = configureStore({
     cart: cartReducer
   }
 });
+
 store.dispatch(getTotals());
 
 

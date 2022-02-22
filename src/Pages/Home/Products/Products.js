@@ -13,11 +13,12 @@ const Products = () => {
         dispatch(fetchProducts());
         dispatch(getTotals());
 
-    }, [])
+    }, [dispatch])
 
 
 
-    const products = useSelector((state) => state?.products?.discover.products)
+    const products = useSelector((state) => state?.products?.discover)
+    console.log(products);
     return (
         <div>
             <h2>Products</h2>

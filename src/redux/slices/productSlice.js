@@ -6,7 +6,7 @@ export const fetchProducts = createAsyncThunk(
     'product/fetchProducts',
     async () => {
 
-        const response = await fetch('https://digidokan.southeastasia.cloudapp.azure.com/products/getProducts/1')
+        const response = await fetch('https://murmuring-basin-44738.herokuapp.com/product')
             .then(res => res.json())
         return response
     }
@@ -20,7 +20,6 @@ export const fetchProducts = createAsyncThunk(
 //         return response
 //     }
 // )
-
 
 const productSlice = createSlice({
     name: 'products',

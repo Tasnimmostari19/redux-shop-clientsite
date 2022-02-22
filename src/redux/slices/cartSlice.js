@@ -16,7 +16,7 @@ const cartSlice = createSlice({
 
     reducers: {
         addToCart: (state, action) => {
-            const itemIndex = state.cartItems.findIndex(item => item.product_id === action.payload.product_id);
+            const itemIndex = state.cartItems.findIndex(item => item._id === action.payload._id);
 
             if (itemIndex >= 0) {
                 state.cartItems[itemIndex].cartQuantity += 1
@@ -30,18 +30,18 @@ const cartSlice = createSlice({
         },
         removeFromCart: (state, action) => {
 
-            state.cartItems = state.cartItems.filter(product => product.product_id !== action.payload.product_id)
+            state.cartItems = state.cartItems.filter(product => product._id !== action.payload._id)
 
 
         },
 
         decreaseCart: (state, action) => {
-            const itemIndex = state.cartItems.findIndex(cartItem => cartItem.product_id === action.payload.product_id)
+            const itemIndex = state.cartItems.findIndex(cartItem => cartItem._id === action.payload._id)
             if (state.cartItems[itemIndex].cartQuantity > 1) {
                 state.cartItems[itemIndex].cartQuantity -= 1
             }
             else if (state.cartItems[itemIndex].cartQuantity === 1) {
-                state.cartItems = state.cartItems.filter(product => product.product_id !== action.payload.product_id)
+                state.cartItems = state.cartItems.filter(product => product._id !== action.payload._id)
             }
             localStorage.setItem('cart', JSON.stringify(state.cartItems));
         },
@@ -53,8 +53,8 @@ const cartSlice = createSlice({
         getTotals: (state, action) => {
 
             let { total, quantity } = state.cartItems.reduce((cartTotal, cartItem) => {
-                const { unit_selling_price, cartQuantity } = cartItem;
-                const itemTotal = unit_selling_price * cartQuantity;
+                const { price, cartQuantity } = cartItem;
+                const itemTotal = price * cartQuantity;
 
                 cartTotal.total += itemTotal
                 cartTotal.quantity += cartQuantity

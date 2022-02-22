@@ -8,15 +8,15 @@ import BuyNowButton from '../../Shared/BuyNowButton/BuyNowButton';
 const ProductDetails = ({ id }) => {
 
     const [details, setDetails] = useState({});
-    console.log(details);
+    // console.log(details);
 
     useEffect(() => {
-        fetch(`https://digidokan.southeastasia.cloudapp.azure.com/products/getSingleProduct/${id}`)
+        fetch(`https://murmuring-basin-44738.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [])
 
-    const img = details.images?.find(detail => detail?.product_id == id)
+    // const img = details.images?.find(detail => detail?.product_id == id)
 
 
     return (
@@ -28,7 +28,7 @@ const ProductDetails = ({ id }) => {
                 <CardMedia
                     component="img"
                     width='50%'
-                    image={img?.image_url}
+                    image={details.img}
                     alt='image'
                     sx={{ width: '50%' }}
 
@@ -37,20 +37,20 @@ const ProductDetails = ({ id }) => {
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: '8px', paddingTop: '20px', marginBottom: '6px' }} >
                     <Typography component="div" sx={{ fontSize: '16px', fontWeight: 500, color: '#021F3F' }} ellipsizeMode='tail' numberOfLines={1}>
-                        {details.product?.product_name}
+                        {details.name}
                     </Typography>
                     <Typography variant="body2" color="#021F3F">
-                        {details.product?.unit_selling_price}/-
+                        {details.price}/-
                     </Typography>
                     <Typography variant="body2" color="#021F3F">
-                        {details.product?.product_description}/-
+                        {details.description}
                     </Typography>
                 </Box>
 
                 <Box sx={{ display: 'flex', alignItems: 'flex-start', marginLeft: '18px', marginTop: '0px', paddingTop: '20px' }}>
                     <Box>
                         <AddToBagButton
-                            id={details?.product?.product_id}
+                            product={details}
 
                         ></AddToBagButton>
                     </Box>

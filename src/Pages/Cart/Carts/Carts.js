@@ -14,7 +14,7 @@ const Carts = () => {
     }, [cart, dispatch])
 
 
-    // console.log(cart);
+    console.log(cart);
     const carts = cart.cartItems;
     // console.log(carts);
 
@@ -33,7 +33,7 @@ const Carts = () => {
                             <Typography sx={{ fontSize: '14px', fontWeight: 'bold' }}>Product Name</Typography>
                             {
                                 // <Typography sx={{ fontSize: '14px' }}>{ }</Typography>
-                                carts.map(cart => <Typography sx={{ fontSize: '14px' }}>{cart.product_name}</Typography>)
+                                carts.map(cart => <Typography sx={{ fontSize: '14px' }}>{cart.name}</Typography>)
                             }
                         </Box>
 
@@ -48,7 +48,7 @@ const Carts = () => {
                     <Grid item xs={2} sm={4} md={4} >
                         <Typography sx={{ fontSize: '14px', fontWeight: 'bold' }}>Amount</Typography>
                         {
-                            carts.map(cart => <Typography sx={{ fontSize: '14px' }}>{cart.unit_selling_price * cart.cartQuantity}</Typography>)
+                            carts.map(cart => <Typography sx={{ fontSize: '14px' }}>{cart.price * cart.cartQuantity}</Typography>)
                         }
                     </Grid>
                 </Grid>
@@ -64,9 +64,9 @@ const Carts = () => {
                     </Grid>
                     <Grid item xs={2} sm={4} md={6} sx={{ color: '#021F3F' }}>
                         <Typography sx={{ fontSize: '14px' }}>{cart.cartTotalAmount}</Typography>
-                        <Typography sx={{ fontSize: '14px' }}>{'0'}</Typography>
-                        <Typography sx={{ fontSize: '14px' }}>{carts[0].vat_percentage}</Typography>
-                        <Typography sx={{ fontSize: '14px' }}>{ }</Typography>
+                        <Typography sx={{ fontSize: '14px' }}>0</Typography>
+                        {/* <Typography sx={{ fontSize: '14px' }}>{carts[0].vat_percentage}</Typography> */}
+                        <Typography sx={{ fontSize: '14px' }}>0</Typography>
                     </Grid>
                 </Grid>
 
@@ -79,7 +79,7 @@ const Carts = () => {
 
                     </Grid>
                     <Grid item xs={2} sm={4} md={6} sx={{ color: '#021F3F' }}>
-                        <Typography sx={{ fontSize: '14px' }}>{cart.cartTotalAmount + carts[0].vat_percentage}</Typography>
+                        <Typography sx={{ fontSize: '14px' }}>{cart.cartTotalAmount}</Typography>
 
                     </Grid>
                 </Grid>

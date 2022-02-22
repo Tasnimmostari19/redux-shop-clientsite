@@ -24,7 +24,7 @@ const Bag = () => {
                     </Box>
 
 
-                    <a href='/cart' style={{ textDecoration: 'none' }}>Cart</a>
+                    <a href='/cart' style={{ textDecoration: 'none', color: '#1b5e20' }}>Cart</a>
                 </Button>
             </Box>
         </div >

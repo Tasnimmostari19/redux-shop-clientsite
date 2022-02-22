@@ -11,7 +11,7 @@ import { getStoredCart } from '../utilities/fakeDb';
 // let savedItem;
 
 const AddToBagButton = ({ product }) => {
-    // console.log(product?.product_id);
+    console.log(product?._id);
 
     const [checked, setChecked] = useState(false);
     const [value, setValue] = useState(0);
